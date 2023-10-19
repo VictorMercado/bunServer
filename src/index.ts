@@ -9,6 +9,8 @@ export type User = typeof user
 
 const server = Bun.serve<User>({
 	fetch(req, server) {
+		// testing railway
+		return new Response("Bun!");
 		if (server.upgrade(req, { data: { ...user } })) return
 		return new Response(null, {
 			status: 301,
